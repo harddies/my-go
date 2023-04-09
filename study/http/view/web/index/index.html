@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{.name}} is a pig
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>小区名</td>
+        <td>上周价格</td>
+        <td>本周价格</td>
+        <td>抓取时间</td>
+    </tr>
+    {{ range $k, $v := .prices}}
+    <tr>
+        <td>{{ $v.id }}</td>
+        <td>{{ $v.name }}</td>
+        <td>{{ $v.last_week_price }}</td>
+        <td>{{ $v.current_week_price }}</td>
+        <td>{{ $v.create_time }}</td>
+    </tr>
+    {{ end }}
+</table>
+</body>
+</html>

@@ -1,0 +1,127 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "这是一个swagger 2.0的demo文档",
+    "title": "web API.",
+    "termsOfService": "只是为了demo，不可用来调试哈，这个地址只是自己mvc网站的控制器借个地方来demo swagger的",
+    "contact": {
+      "name": "Ronnie Li",
+      "email": "liyixin@bilibili.com"
+    },
+    "license": {
+      "name": "Ronnie"
+    },
+    "version": "0.0.1"
+  },
+  "host": "localhost:9090",
+  "basePath": "/api/v1",
+  "paths": {
+    "/web/index/index/{id}": {
+      "get": {
+        "description": "得到一个ID",
+        "tags": [
+          "webIndex"
+        ],
+        "summary": "通过ID得到一个index response",
+        "operationId": "Index",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Id",
+            "description": "一个ID",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Name",
+            "description": "一个Name",
+            "name": "name",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/IndexResponse"
+          }
+        }
+      }
+    },
+    "/web/index/test2/{id}": {
+      "get": {
+        "description": "得到一个ID",
+        "tags": [
+          "webTest2"
+        ],
+        "summary": "通过test2ID得到一个ID",
+        "operationId": "Test2",
+        "parameters": [
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Id",
+            "description": "一个ID",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Name",
+            "description": "一个Name",
+            "name": "name",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/IndexResponse"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ResponseMessage": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "data": {
+          "type": "object",
+          "x-go-name": "Data"
+        },
+        "message": {
+          "type": "string",
+          "x-go-name": "Message"
+        }
+      },
+      "x-go-package": "my-go/study/http/controllers/web"
+    }
+  },
+  "responses": {
+    "IndexResponse": {
+      "description": "Index Info",
+      "schema": {
+        "$ref": "#/definitions/ResponseMessage"
+      }
+    }
+  }
+}
