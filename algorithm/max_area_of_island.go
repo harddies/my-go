@@ -5,7 +5,7 @@ package main
 import (
 	"fmt"
 	"math"
-	"my-go/algorithm/utils"
+	"my-go/utils"
 )
 
 func main() {
